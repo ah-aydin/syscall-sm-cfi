@@ -62,18 +62,20 @@ async fn main() -> Result<(), anyhow::Error> {
                     _ => panic!("Failed to get data object"),
                 };
 
-                for (key, value) in sm.iter() {
+                for (from, value) in sm.iter() {
                     match value {
                         Value::Array(a) => {
                             for v in a {
-                                if let Value::String(s) = v {
-                                    info!("Transition {} -> {}", key, s);
-                                    let transition = build_transition(
-                                        bin_name,
-                                        syscalls::get_syscall_id(String::from(key)).unwrap(),
-                                        syscalls::get_syscall_id(String::from(key)).unwrap()
-                                        );
+                                if let Value::String(to) = v {
+                                    let from_id = syscalls::get_syscall_id(String::from(from)).unwrap();
+                                    let to_id = syscalls::get_syscall_id(String::from(to)).unwrap();
+                                    let transition = build_transition(bin_name, from_id, to_id);
                                     transitions.insert(transition, str_to_1(" "), 0).unwrap();
+
+                                    info!("Transition {} -> {} | {} -> {}", from, to, from_id, to_id);
+                                    info!("Transition values: {:?}", transition);
+                                    let hex_values = transition.iter().map(|x| format!("{:02x}", x)).collect::<Vec<String>>().join(" ");
+                                    info!("Transition values in hex: {}", hex_values);
                                 }
                             }
                         },

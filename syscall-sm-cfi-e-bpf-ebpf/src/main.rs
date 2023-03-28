@@ -49,15 +49,25 @@ fn try_tracepoint_program(ctx: TracePointContext) -> Result<c_long, c_long> {
     }
 
     // Check if first syscall
-    if unsafe { SYS_SM_LAST_SYSCALL.get(&bin_bytes).is_none() } {
+    let prev_syscall_result = unsafe { SYS_SM_LAST_SYSCALL.get(&bin_bytes) };
+    if prev_syscall_result.is_none() {
         unsafe { SYS_SM_LAST_SYSCALL.insert(&bin_bytes, &(syscall_nr as u16), 0).unwrap() };
         return Ok(0);
     }
-    
-    // TODO check for SM transitions
-    let transition = build_transition(bin_name, syscall_nr as u16, syscall_nr as u16);
-    info!(&ctx, "TERMINATED: syscall is entered {} bin_name: {}", syscall_nr, bin_name);
+
+    // Check if it is a valid transition
+    let prev_syscall_nr: u16 = prev_syscall_result.unwrap().clone();
+    let syscall_nr_u16: u16 = syscall_nr as u16;
+    let transition = build_transition(bin_name, prev_syscall_nr, syscall_nr_u16);
+    if unsafe { SYS_SM_TRANSITIONS.get(&transition).is_some() } {
+        unsafe { SYS_SM_LAST_SYSCALL.insert(&bin_bytes, &syscall_nr_u16, 0).unwrap() };
+        return Ok(0);
+    }
+
+    info!(&ctx, "TERMINATED: illegal transition by {} | from {} to {}", bin_name, prev_syscall_nr, syscall_nr);
     unsafe { bpf_send_signal_thread(SIGTERM) };
+    // TODO maybe consider not terminating, but deniying access to the syscall
+    // Ok(-1)
     Ok(0)
 }
 
