@@ -8,13 +8,13 @@ The userspace program attaches eBPF programs to all the syscall tracepoints that
 ## Prerequisites
 
 1. Install a rust stable toolchain: `rustup install stable`
-1. Install a rust nightly toolchain with the rust-src component: `rustup toolchain install nightly --component rust-src`
-1. Install bpf-linker: `cargo install bpf-linker`
+2. Install a rust nightly toolchain with the rust-src component: `rustup toolchain install nightly --component rust-src`
+3. Install bpf-linker: `cargo install bpf-linker`
 
 ## Project structure
 
 1. syscall_extractor 
-    - extracts he syscall state machine from `.syscall` files found in `res` folder as `.json` files inside `res`. The `.syscall` files are generated using `strace -o my_file.syscall my-binary`.
+    - extracts the syscall state machine from `.syscall` files found in `res` folder as `.json`. The `.syscall` files are generated using `strace -o my_file.syscall my-binary`.
 2. syscalls
     - collection of common code that is used in `syscall-sm-cfi-e-bpf` and `syscall_extractor`.
     - fetches syscall state from the machine.
@@ -23,16 +23,17 @@ The userspace program attaches eBPF programs to all the syscall tracepoints that
     - userspace program that populates the tables from the `.json` files inside the `res` folder and attaches the kernel space program to all syscall tracepoints.
 4. syscall-sm-cfi-e-bpf-common
     - contains common code used by `syscall-sm-cfi-e-bpf` and `syscall-sm-cfi-e-bpf-ebpf`.
+    - this is a `no std` crate
 5. syscall-sm-cfi-e-bpf-ebpf
     - kernel space eBPF program.
 
 ## Build 
 
 ```bash
-# Build kernel space eBPF
+# Build kernel space program
 cargo xtask build-ebpf
 
-# Generate .json files in .res/
+# Generate .json files in .res/ from .syscall files
 cargo xtask syscall-extractor
 
 # Run userspace

@@ -1,62 +1,29 @@
 {
     "binary": "cat",
     "data": {
-        "read": [
-            "pread64",
-            "write",
+        "prlimit64": [
             "munmap"
+        ],
+        "set_robust_list": [
+            "rseq"
+        ],
+        "mprotect": [
+            "mprotect",
+            "prlimit64"
         ],
         "brk": [
             "arch_prctl",
             "brk",
             "openat"
         ],
-        "getrandom": [
-            "brk"
-        ],
-        "exit_group": [
-            "brk"
-        ],
-        "execve": [
-            "brk"
-        ],
-        "mmap": [
-            "access",
-            "close",
-            "mmap",
-            "arch_prctl",
-            "read"
-        ],
-        "rseq": [
-            "mprotect"
-        ],
-        "mprotect": [
-            "mprotect",
-            "prlimit64"
-        ],
-        "access": [
-            "openat"
-        ],
-        "set_tid_address": [
-            "set_robust_list"
-        ],
-        "munmap": [
-            "getrandom",
-            "close"
-        ],
         "openat": [
             "newfstatat",
             "read"
         ],
-        "fadvise64": [
-            "mmap"
-        ],
-        "write": [
-            "read"
-        ],
-        "arch_prctl": [
-            "mmap",
-            "set_tid_address"
+        "read": [
+            "pread64",
+            "write",
+            "munmap"
         ],
         "close": [
             "openat",
@@ -65,22 +32,59 @@
             "close",
             "exit_group"
         ],
-        "prlimit64": [
-            "munmap"
-        ],
-        "set_robust_list": [
-            "rseq"
-        ],
         "newfstatat": [
             "mmap",
             "pread64",
             "openat",
-            "fadvise64"
+            "fadvise64",
+            "brk"
+        ],
+        "fadvise64": [
+            "mmap"
+        ],
+        "arch_prctl": [
+            "mmap",
+            "set_tid_address"
+        ],
+        "munmap": [
+            "getrandom",
+            "close"
+        ],
+        "exit_group": [
+            "brk"
+        ],
+        "set_tid_address": [
+            "set_robust_list"
+        ],
+        "mmap": [
+            "access",
+            "close",
+            "mmap",
+            "arch_prctl",
+            "read"
         ],
         "pread64": [
             "pread64",
             "newfstatat",
             "mmap"
+        ],
+        "getrandom": [
+            "brk"
+        ],
+        "access": [
+            "openat"
+        ],
+        "write": [
+            "read"
+        ],
+        "execve": [
+            "brk"
+        ],
+        "rseq": [
+            "mprotect"
+        ],
+        "epoll_wait": [
+            "brk"
         ]
     }
 }
