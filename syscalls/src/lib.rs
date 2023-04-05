@@ -9,7 +9,7 @@ use std::{
     io::Read,
     str::from_utf8,
 };
-use log::info;
+use log::debug;
 use state::State;
 
 pub const RES_DIR: &str = "/home/hamza/Dev/syscall-sm-cfi-e-bpf/res/";
@@ -39,7 +39,7 @@ pub fn init() {
         let mut data_split = data.split_whitespace();
         let syscall_name = data_split.next().unwrap();
         let syscall_id: u16 = data_split.next().unwrap().parse().unwrap();
-        info!("Adding syscall {:3} | {}", syscall_id, syscall_name);
+        debug!("Adding syscall {:3} | {}", syscall_id, syscall_name);
 
         unsafe { GLOBAL_STATE.as_mut().unwrap().add_syscall(String::from(syscall_name), syscall_id) };
     }
@@ -49,13 +49,13 @@ pub fn init() {
     for dir in tracepoint_dirs {
         let entry = dir.unwrap();
         if entry.file_type().unwrap().is_dir() {
-            info!("Found tracepoint: {}", entry.file_name().to_string_lossy());
+            debug!("Found tracepoint: {}", entry.file_name().to_string_lossy());
             unsafe { GLOBAL_STATE.as_mut().unwrap().add_tracepoint(String::from(entry.file_name().to_string_lossy())) };
         }
     }
 
-    info!("Found {} syscalls", unsafe {GLOBAL_STATE.as_ref().unwrap().get_syscall_count() });
-    info!("Found {} tracepoints", unsafe {GLOBAL_STATE.as_ref().unwrap().get_tracepoint_count() });
+    debug!("Found {} syscalls", unsafe {GLOBAL_STATE.as_ref().unwrap().get_syscall_count() });
+    debug!("Found {} tracepoints", unsafe {GLOBAL_STATE.as_ref().unwrap().get_tracepoint_count() });
 }
 
 pub fn get_syscall_id(syscall_name: String) -> Option<u16> {

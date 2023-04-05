@@ -2,7 +2,7 @@ use aya::programs::TracePoint;
 use aya::{include_bytes_aligned, Bpf};
 use aya::maps::HashMap;
 use aya_log::BpfLogger;
-use log::{info, warn};
+use log::{info, warn, debug};
 use tokio::signal;
 use syscall_sm_cfi_e_bpf_common::{
     str_to_1,
@@ -73,10 +73,10 @@ async fn main() -> Result<(), anyhow::Error> {
                     let transition = build_transition(bin_name, from_id, to_id);
                     transitions.insert(transition, str_to_1(" "), 0).unwrap();
 
-                    // info!("Transition {} -> {} | {} -> {}", from, to, from_id, to_id);
-                    // info!("Transition values: {:?}", transition);
-                    // let hex_values = transition.iter().map(|x| format!("{:02x}", x)).collect::<Vec<String>>().join(" ");
-                    // info!("Transition values in hex: {}", hex_values);
+                    debug!("Transition {} -> {} | {} -> {}", from, to, from_id, to_id);
+                    debug!("Transition values: {:?}", transition);
+                    let hex_values = transition.iter().map(|x| format!("{:02x}", x)).collect::<Vec<String>>().join(" ");
+                    debug!("Transition values in hex: {}", hex_values);
                 }
             }
         }

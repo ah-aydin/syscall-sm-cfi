@@ -37,7 +37,8 @@
             "pread64",
             "openat",
             "fadvise64",
-            "brk"
+            "brk",
+            "write"
         ],
         "fadvise64": [
             "mmap"
