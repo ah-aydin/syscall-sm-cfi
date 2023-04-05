@@ -73,10 +73,10 @@ async fn main() -> Result<(), anyhow::Error> {
                     let transition = build_transition(bin_name, from_id, to_id);
                     transitions.insert(transition, str_to_1(" "), 0).unwrap();
 
-                    info!("Transition {} -> {} | {} -> {}", from, to, from_id, to_id);
-                    info!("Transition values: {:?}", transition);
-                    let hex_values = transition.iter().map(|x| format!("{:02x}", x)).collect::<Vec<String>>().join(" ");
-                    info!("Transition values in hex: {}", hex_values);
+                    // info!("Transition {} -> {} | {} -> {}", from, to, from_id, to_id);
+                    // info!("Transition values: {:?}", transition);
+                    // let hex_values = transition.iter().map(|x| format!("{:02x}", x)).collect::<Vec<String>>().join(" ");
+                    // info!("Transition values in hex: {}", hex_values);
                 }
             }
         }
