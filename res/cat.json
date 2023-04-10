@@ -18,12 +18,17 @@
         ],
         "openat": [
             "newfstatat",
-            "read"
+            "read",
+            "write",
+            "openat"
         ],
         "read": [
+            "close",
+            "read",
             "pread64",
             "write",
-            "munmap"
+            "munmap",
+            "newfstatat"
         ],
         "close": [
             "openat",
@@ -38,7 +43,8 @@
             "openat",
             "fadvise64",
             "brk",
-            "write"
+            "write",
+            "read"
         ],
         "fadvise64": [
             "mmap"
@@ -76,7 +82,11 @@
             "openat"
         ],
         "write": [
-            "read"
+            "write",
+            "close",
+            "read",
+            "brk",
+            "openat"
         ],
         "execve": [
             "brk"

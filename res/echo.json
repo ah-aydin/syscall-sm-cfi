@@ -1,1 +1,76 @@
-{"binary":"echo","data":{"execve":["brk"],"mprotect":["mprotect","prlimit64"],"arch_prctl":["mmap","set_tid_address"],"mmap":["access","close","mmap","arch_prctl"],"prlimit64":["munmap"],"getrandom":["brk"],"newfstatat":["mmap","pread64","write"],"set_robust_list":["rseq"],"set_tid_address":["set_robust_list"],"openat":["newfstatat","read"],"munmap":["getrandom"],"exit_group":[],"rseq":["mprotect"],"brk":["arch_prctl","brk","openat"],"access":["openat"],"close":["openat","mmap","newfstatat","close","exit_group"],"pread64":["pread64","newfstatat","mmap"],"write":["close"],"read":["pread64"]}}
+{
+    "binary": "echo",
+    "data": {
+        "execve": [
+            "brk"
+        ],
+        "mprotect": [
+            "mprotect",
+            "prlimit64"
+        ],
+        "arch_prctl": [
+            "mmap",
+            "set_tid_address"
+        ],
+        "mmap": [
+            "access",
+            "close",
+            "mmap",
+            "arch_prctl"
+        ],
+        "prlimit64": [
+            "munmap"
+        ],
+        "getrandom": [
+            "brk"
+        ],
+        "newfstatat": [
+            "mmap",
+            "pread64",
+            "write"
+        ],
+        "set_robust_list": [
+            "rseq"
+        ],
+        "set_tid_address": [
+            "set_robust_list"
+        ],
+        "openat": [
+            "newfstatat",
+            "read"
+        ],
+        "munmap": [
+            "getrandom"
+        ],
+        "exit_group": [],
+        "rseq": [
+            "mprotect"
+        ],
+        "brk": [
+            "arch_prctl",
+            "brk",
+            "openat"
+        ],
+        "access": [
+            "openat"
+        ],
+        "close": [
+            "openat",
+            "mmap",
+            "newfstatat",
+            "close",
+            "exit_group"
+        ],
+        "pread64": [
+            "pread64",
+            "newfstatat",
+            "mmap"
+        ],
+        "write": [
+            "close"
+        ],
+        "read": [
+            "pread64"
+        ]
+    }
+}
