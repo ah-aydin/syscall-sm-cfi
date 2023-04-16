@@ -54,9 +54,10 @@ fn try_tracepoint_program(ctx: TracePointContext) -> Result<c_long, c_long> {
     let syscall_nr: u32 = unsafe { ctx.read_at(SYSCALL_NR_OFFSET)? };
 
     // Build the key for binary with it's pid and tgid
-    let tgid = (bpf_get_current_pid_tgid() >> 32) as u32;
-    let pid = bpf_get_current_pid_tgid() as u32;
-    let bin_tgid_pid = build_bin_pid_tgid(bin_name, pid, tgid);
+    let tgid_pid = bpf_get_current_pid_tgid();
+    let tgid = (tgid_pid >> 32) as u32;
+    let pid = tgid_pid as u32;
+    let bin_tgid_pid = build_bin_pid_tgid(bin_name, tgid_pid);
 
     // Check if first syscall
     let prev_syscall_result = unsafe { SYS_SM_LAST_SYSCALL.get(&bin_tgid_pid) };
