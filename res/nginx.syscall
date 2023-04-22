@@ -1,0 +1,56 @@
+epoll_wait(9, [{events=EPOLLIN, data={u32=2888970953, u64=139821254324937}}], 512, 70304) = 1
+recvfrom(21, "GET / HTTP/1.1\r\nHost: localhost\r"..., 1024, 0, NULL, NULL) = 758
+newfstatat(AT_FDCWD, "/var/www/html/", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/index.html", 0x7ffd2e517520, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/var/www/html", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/index.htm", 0x7ffd2e517520, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/var/www/html/index.nginx-debian.html", {st_mode=S_IFREG|0644, st_size=612, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/index.nginx-debian.html", {st_mode=S_IFREG|0644, st_size=612, ...}, 0) = 0
+openat(AT_FDCWD, "/var/www/html/index.nginx-debian.html", O_RDONLY|O_NONBLOCK) = 22
+newfstatat(22, "", {st_mode=S_IFREG|0644, st_size=612, ...}, AT_EMPTY_PATH) = 0
+writev(21, [{iov_base="HTTP/1.1 304 Not Modified\r\nServe"..., iov_len=189}], 1) = 189
+write(4, "::1 - - [22/Apr/2023:15:48:42 +0"..., 168) = 168
+close(22)                               = 0
+epoll_wait(9, [{events=EPOLLIN, data={u32=2888970953, u64=139821254324937}}], 512, 75000) = 1
+recvfrom(21, "GET / HTTP/1.1\r\nHost: localhost\r"..., 1024, 0, NULL, NULL) = 758
+newfstatat(AT_FDCWD, "/var/www/html/", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/index.html", 0x7ffd2e517520, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/var/www/html", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/index.htm", 0x7ffd2e517520, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/var/www/html/index.nginx-debian.html", {st_mode=S_IFREG|0644, st_size=612, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/index.nginx-debian.html", {st_mode=S_IFREG|0644, st_size=612, ...}, 0) = 0
+openat(AT_FDCWD, "/var/www/html/index.nginx-debian.html", O_RDONLY|O_NONBLOCK) = 22
+newfstatat(22, "", {st_mode=S_IFREG|0644, st_size=612, ...}, AT_EMPTY_PATH) = 0
+writev(21, [{iov_base="HTTP/1.1 304 Not Modified\r\nServe"..., iov_len=189}], 1) = 189
+write(4, "::1 - - [22/Apr/2023:15:48:42 +0"..., 168) = 168
+close(22)                               = 0
+epoll_wait(9, [{events=EPOLLIN, data={u32=2888970953, u64=139821254324937}}], 512, 75000) = 1
+recvfrom(21, "GET / HTTP/1.1\r\nHost: localhost\r"..., 1024, 0, NULL, NULL) = 758
+newfstatat(AT_FDCWD, "/var/www/html/", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/index.html", 0x7ffd2e517520, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/var/www/html", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/index.htm", 0x7ffd2e517520, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/var/www/html/index.nginx-debian.html", {st_mode=S_IFREG|0644, st_size=612, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/index.nginx-debian.html", {st_mode=S_IFREG|0644, st_size=612, ...}, 0) = 0
+openat(AT_FDCWD, "/var/www/html/index.nginx-debian.html", O_RDONLY|O_NONBLOCK) = 22
+newfstatat(22, "", {st_mode=S_IFREG|0644, st_size=612, ...}, AT_EMPTY_PATH) = 0
+writev(21, [{iov_base="HTTP/1.1 304 Not Modified\r\nServe"..., iov_len=189}], 1) = 189
+write(4, "::1 - - [22/Apr/2023:15:48:43 +0"..., 168) = 168
+close(22)                               = 0
+epoll_wait(9, [{events=EPOLLIN, data={u32=2888970953, u64=139821254324937}}], 512, 75000) = 1
+recvfrom(21, "GET / HTTP/1.1\r\nHost: localhost\r"..., 1024, 0, NULL, NULL) = 758
+newfstatat(AT_FDCWD, "/var/www/html/", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/index.html", 0x7ffd2e517520, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/var/www/html", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/index.htm", 0x7ffd2e517520, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/var/www/html/index.nginx-debian.html", {st_mode=S_IFREG|0644, st_size=612, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/var/www/html/index.nginx-debian.html", {st_mode=S_IFREG|0644, st_size=612, ...}, 0) = 0
+openat(AT_FDCWD, "/var/www/html/index.nginx-debian.html", O_RDONLY|O_NONBLOCK) = 22
+newfstatat(22, "", {st_mode=S_IFREG|0644, st_size=612, ...}, AT_EMPTY_PATH) = 0
+writev(21, [{iov_base="HTTP/1.1 304 Not Modified\r\nServe"..., iov_len=189}], 1) = 189
+write(4, "::1 - - [22/Apr/2023:15:48:43 +0"..., 168) = 168
+close(22)
