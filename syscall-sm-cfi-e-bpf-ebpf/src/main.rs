@@ -94,3 +94,4 @@ fn try_tracepoint_program(ctx: TracePointContext) -> Result<c_long, c_long> {
 fn panic(_info: &core::panic::PanicInfo) -> ! {
     unsafe { core::hint::unreachable_unchecked() }
 }
+
