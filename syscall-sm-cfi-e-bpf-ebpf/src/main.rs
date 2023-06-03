@@ -87,7 +87,7 @@ fn try_tracepoint_program(ctx: TracePointContext) -> Result<c_long, c_long> {
     unsafe { bpf_send_signal_thread(SIGTERM) };
     // TODO maybe consider not terminating, but deniying access to the syscall
     // Ok(-1)
-    Ok(0)
+    Err(0)
 }
 
 #[panic_handler]
